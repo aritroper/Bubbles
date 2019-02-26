@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,95 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BUBBLES" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to start an idea!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTe-9B-ut3" userLabel="Instructions">
+                                <rect key="frame" x="112.5" y="332" width="150.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <color key="textColor" red="0.5450980392" green="0.54901960780000003" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g5j-PI-dMx">
+                                <rect key="frame" x="0.0" y="10" width="375" height="667"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tfc-zy-tT1" userLabel="Close">
+                                <rect key="frame" x="170" y="228.5" width="35" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Fp3-ee-x51"/>
+                                    <constraint firstAttribute="width" constant="35" id="f9e-6d-3TW"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                                <connections>
+                                    <action selector="close:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Tfj-2u-hcf"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="fling me to post!" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pbz-VH-SUv" userLabel="Idea">
+                                <rect key="frame" x="37.5" y="328.5" width="300" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="81E-53-Ofj"/>
+                                    <constraint firstAttribute="height" constant="30" id="IAv-gW-uxZ"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="HdI-5h-r4D"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of bubbles: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLk-Ch-xv5">
+                                <rect key="frame" x="0.0" y="23.5" width="375" height="16.5"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="12"/>
+                                <color key="textColor" red="0.45490196078431372" green="0.72549019607843135" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="CLk-Ch-xv5" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="F7k-l6-ZHT"/>
+                            <constraint firstItem="pbz-VH-SUv" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="JNa-1j-XiV"/>
+                            <constraint firstItem="g5j-PI-dMx" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="O3J-Uf-zmq"/>
+                            <constraint firstItem="g5j-PI-dMx" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="Zf6-KE-3sh"/>
+                            <constraint firstItem="rTe-9B-ut3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="cRj-ud-1kR"/>
+                            <constraint firstItem="tfc-zy-tT1" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dQc-1L-A9H"/>
+                            <constraint firstItem="rTe-9B-ut3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="eC2-bU-tuf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="CLk-Ch-xv5" secondAttribute="bottom" constant="-20" id="gAM-A1-1Xb"/>
+                            <constraint firstItem="g5j-PI-dMx" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gsC-uX-0FP"/>
+                            <constraint firstItem="pbz-VH-SUv" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="kUv-kc-dgQ"/>
+                            <constraint firstItem="tfc-zy-tT1" firstAttribute="top" secondItem="pbz-VH-SUv" secondAttribute="top" constant="-100" id="ptn-xX-9Af"/>
+                            <constraint firstItem="g5j-PI-dMx" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="umP-FM-MaB"/>
+                            <constraint firstItem="CLk-Ch-xv5" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xPQ-3I-Eaz"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="bubbleCount" destination="CLk-Ch-xv5" id="7jY-0v-sIE"/>
+                        <outlet property="circle" destination="g5j-PI-dMx" id="Yza-AO-aUN"/>
+                        <outlet property="close" destination="tfc-zy-tT1" id="cBm-iz-Tex"/>
+                        <outlet property="idea" destination="pbz-VH-SUv" id="xQe-is-2J4"/>
+                        <outlet property="instructions" destination="rTe-9B-ut3" id="GJM-JA-BDF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="close" width="102.40000152587891" height="102.40000152587891"/>
+    </resources>
 </document>
